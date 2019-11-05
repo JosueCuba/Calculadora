@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Calculadora</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panelGrid columns="2" style="margin-bottom:10px">
+
+                <p:outputLabel  value="Primer Número:" />
+                <p:inputText value="#{calculadora.numero1}"/>
+
+                <p:outputLabel  value="Segundo Número:" />
+                <p:inputText value="#{calculadora.numero2}"/>
+
+                <p:outputLabel value="Operador:" />
+                <p:selectOneMenu id="oper" value="#{calculadora.operador}" style="width:125px"  effect="fold">
+                    <f:selectItem itemLabel="Suma" itemValue="S" />
+                    <f:selectItem itemLabel="Resta" itemValue="R" />
+                    <f:selectItem itemLabel="Multiplicación" itemValue="M" />
+                    <f:selectItem itemLabel="División" itemValue="D" />
+                    <p:ajax listener="#{calculadora.operaciones()}" update="resul"/>
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Resultado:" />
+                <p:inputText id="resul" value="#{calculadora.resultado}">
+                </p:inputText>
+
+                <p:outputLabel value="Historial:" />
+                <p:inputTextarea id="hist" value="sdds"></p:inputTextarea>
+            </p:panelGrid>
+        </h:form>
+
+    </h:body>
+</html>
+

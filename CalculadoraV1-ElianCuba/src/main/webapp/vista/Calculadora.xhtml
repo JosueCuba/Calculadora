@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Calculadora</title>
+    </h:head>
+    <h:body>
+        <!--        <h:form>
+                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                        <p:outputLabel for="hist" value="Historial:" />
+                        <p:inputTextarea id="hist">
+        
+                        </p:inputTextarea>
+                        <p:outputLabel for="nro1" value="Primer Número:" />
+                        <p:inputNumber id="nro1">
+        
+                        </p:inputNumber>
+                        <p:outputLabel for="oper" value="Operador:" />
+                        <p:selectOneMenu id="oper" value="" style="width:125px"  effect="fold">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItem itemLabel="Suma" itemValue="suma" />
+                            <f:selectItem itemLabel="Resta" itemValue="resta" />
+                            <f:selectItem itemLabel="Multiplicación" itemValue="multiplicación" />
+                            <f:selectItem itemLabel="División" itemValue="división" />
+                        </p:selectOneMenu>
+                        <p:outputLabel for="nro2" value="Segundo Número:" />
+                        <p:inputNumber id="nro2">
+        
+                        </p:inputNumber>
+                         <p:outputLabel for="resul" value="Resultado:" />
+                         <p:inputText id="resul">
+                            
+                        </p:inputText>
+                    </h:panelGrid>
+                </h:form>-->
+
+
+
+        <h:form>
+            <p:panelGrid class="ui-noborder">
+                <f:facet name="header">  
+                    <p:row>  
+                        <p:column style="font-weight: bold;">Introduce los Numeros</p:column>  
+                        <p:column style="font-weight: bold;"></p:column>  
+                    </p:row>  
+                </f:facet>
+
+                <p:row>  
+                    <p:column>  
+                        <h:outputLabel value="Numero 1: "/>
+                    </p:column>  
+                    <p:column>  
+                        <p:inputNumber id="numero1" value="#{calculadora.numero1}">  
+                            <p:ajax update="numero1" />  
+                        </p:inputNumber>  
+                    </p:column>  
+                </p:row>
+                <p:row>  
+                    <p:column>  
+                        <h:outputLabel value="Numero 2: "/>
+                    </p:column>  
+                    <p:column>  
+                        <p:inputNumber id="numero2" value="#{calculadora.numero2}">  
+                            <p:ajax update="numero2" />  
+                        </p:inputNumber>  
+                    </p:column>  
+                </p:row>
+
+                <p:row>  
+                    <p:column>  
+                        <h:commandButton value="Suma"  action="#{calculadora.suma}"/>
+                        <h:commandButton value="Resta" action="#{calculadora.resta}"/>
+                        <h:commandButton value="Multiplicación" action="#{calculadora.multiplicacion}"/>
+                        <h:commandButton value="División" action="#{calculadora.division}"/>
+                        <p:selectOneButton>
+                            
+                        </p:selectOneButton>
+                    </p:column>  
+                </p:row>
+
+                <p:row>  
+                    <p:column>  
+                        <h:outputLabel value="Resultado: "/>
+                        <h:outputText value="#{calculadora.resultado}"/>
+                    </p:column>   
+                </p:row>
+<!--                <p:row>  
+                    <p:column>  
+                        <h:commandButton value="Limpiar" />
+                        
+                    </p:column>   
+                </p:row>-->
+            </p:panelGrid>
+
+        </h:form> 
+    </h:body>
+</html>
+
